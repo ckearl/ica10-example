@@ -1,0 +1,230 @@
+/* SET UP */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  min-height: 80px;
+  height: auto;
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  font-size: 20px;
+}
+
+nav .logo {
+  font-size: 1.5em;
+  margin-left: 1em;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+ul a {
+  /* no underline */
+  text-decoration: none;
+  color: #f4f4f4;
+  margin-left: 2em;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  overflow-x: hidden;
+}
+
+main {
+  height: calc(100vh - 80px);
+  overflow-x: hidden;
+}
+
+section#grid-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+main .center-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.center-grid .box {
+  height: 250px;
+  width: 250px;
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+/* TASK 1 */
+nav img {
+  margin-top: 10px;
+  height: 55px;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+  transition: all 0.8s ease;
+}
+nav img:hover {
+  cursor: pointer;
+  transform: scale(1.2) translate(5px, 2px) rotate(10deg)
+}
+
+
+/* TASK 2 */
+.center-grid .box-3 {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+  padding: 0.75em;
+  padding-bottom: 2em;
+  background-color: #333;
+  color: #f4f4f4;
+  font-size: 1em;
+  /* animation: color-change 2s infinite linear; */
+}
+.task-2-header {
+  font-size: 2em;
+  margin-top: 1em;
+}
+.fancy-link {
+  color: #f4f4f4;
+  text-decoration: none;
+  background-image: linear-gradient(red, blue);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 3px;
+  transition: background-size 500ms ease-in-out;
+  
+  /* extra styling   */
+  font-weight: 900;
+}
+.fancy-link:hover {
+  background-size: 100% 3px;
+}
+
+/* TASK 3 */
+.center-grid .box-4 {
+  grid-row: 2;
+  grid-column: 1;
+  background-color: aquamarine;
+  color: #333;
+  display: grid;
+  place-items: center;
+  font-size: 2em;
+  animation: task-3 4s infinite linear;
+}
+@keyframes task-3 {
+  0% { grid-column: 1; }
+  33% { grid-column: 2; }
+  67% { grid-column: 3; }
+  100% { grid-column: 1; }
+}
+
+/* TASK 4 */
+aside {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 20px;
+  height: 15em;
+  aspect-ratio: 3 / 2;
+  background-color: #333;
+  color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation-name: notification;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: 5s;
+}
+aside span {
+  font-size: 2em;
+}
+@keyframes notification {
+  0% {
+    transform: translateX(22.5em);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(22.5em);
+  }
+}
+
+/* TASK 5 */
+.center-grid .box-2 {
+  grid-column: 2;
+  display: grid; 
+  place-items: center;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+.center-grid .box-2 span {
+  font-size: 2em;
+}
+.center-grid .box-2:hover {
+  animation: color-change 2s infinite linear;
+}
+@keyframes color-change {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* TASK 6 */
+.center-grid .box-1 {
+  grid-column: 1;
+  position: relative;
+  background-color: transparent;
+}
+.center-grid .box-1 span {
+  color: #333;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+}
+.center-grid .box-1 svg {
+  animation: spin 8s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
